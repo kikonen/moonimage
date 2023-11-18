@@ -9,3 +9,10 @@ examples/output*.*
 local/
 src/DIFF
 src/TODO
+
+/x64
+vcpkg_installed
+.vs
+.emacs*
+
+!/generated_lib/**/*
