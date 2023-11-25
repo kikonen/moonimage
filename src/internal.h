@@ -32,6 +32,8 @@
 
 #ifdef _WINDOWS
 #include "../moonimage_dll.h"
+#else
+#define MOONIMAGE_API
 #endif
 
 #include <string.h>
