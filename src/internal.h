@@ -30,6 +30,12 @@
 #ifndef internalDEFINED
 #define internalDEFINED
 
+#ifdef _WINDOWS
+#include "../moonimage_dll.h"
+#else
+#define MOONIMAGE_API
+#endif
+
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
@@ -51,7 +57,7 @@
 
 /* utils.c */
 #define noprintf moonimage_noprintf
-int noprintf(const char *fmt, ...); 
+int noprintf(const char *fmt, ...);
 #define notavailable moonimage_notavailable
 int notavailable(lua_State *L, ...);
 #define malloc_init moonimage_malloc_init
@@ -119,7 +125,7 @@ int pushchantype(lua_State *L, int val);
 const char* errstring(int err);
 
 /* main.c */
-int luaopen_moonimage(lua_State *L);
+MOONIMAGE_API int luaopen_moonimage(lua_State *L);
 void moonimage_open_load(lua_State *L);
 void moonimage_open_write(lua_State *L);
 void moonimage_open_perlin(lua_State *L);
@@ -143,7 +149,7 @@ void moonimage_open_perlin(lua_State *L);
 #define TR() do { printf("trace %s %d\n",__FILE__,__LINE__); } while(0)
 #define BK() do { printf("break %s %d\n",__FILE__,__LINE__); getchar(); } while(0)
 
-#else 
+#else
 
 #define DBG noprintf
 #define TR()

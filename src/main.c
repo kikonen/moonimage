@@ -45,7 +45,7 @@ static int AddVersions(lua_State *L)
     }
 
 
-int luaopen_moonimage(lua_State *L)
+MOONIMAGE_API int luaopen_moonimage(lua_State *L)
 /* Lua calls this function to load the module */
     {
     moonimage_L = L;
